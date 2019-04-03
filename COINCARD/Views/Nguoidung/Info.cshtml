@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Info";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section id="PageMain">
+
+    <h2>Info</h2>
+
+    <table class="table" style="font-size:13px; width:100%">
+        <tr>
+            <th>
+                Họ Và Tên
+            </th>
+       
+            <th>
+                Email
+            </th>
+            <th>
+                Địa Chỉ
+            </th>
+            <th>
+                Điện Thoại
+            </th>
+            <th>
+                Ngày Sinh
+            </th>
+            <th></th>
+        </tr>
+
+
+            <tr>
+                <td>
+                    @Model.Hoten
+                </td>
+                <td>
+                    @Model.Email
+                </td>
+                <td>
+                    @Model.Diachi
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.Nhaplaimatkhau)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Diachi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dienthoai)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ngaysinh)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Xóa", "Xoauser", new { id = item.MaKH })
+                </td>*@
+            </tr>
+        </table>
+    
+
+       
+</section>
+

@@ -1,0 +1,93 @@
+﻿@model COINCARD.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "Xoauser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section id="PageMain">
+
+    <div style="text-align:center; padding-right:22%">
+
+        <h3>Bạn muốn xóa khách hàng này ?</h3>
+
+
+        <hr />
+        <dl class="dl-horizontal" style="font-size:20px">
+            <dt style="font-weight: bold">
+                Họ và tên
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Hoten)
+            </dd>
+
+            <dt style="font-weight: bold">
+                Tài khoản
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Taikhoan)
+            </dd>
+
+            <dt style="font-weight: bold">
+                Mật khẩu
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Matkhau)
+            </dd>
+
+            @*<dt>
+                @Html.DisplayNameFor(model => model.Nhaplaimatkhau)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nhaplaimatkhau)
+            </dd>*@
+
+            <dt style="font-weight: bold">
+                Email
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt style="font-weight: bold">
+                Địa chỉ
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Diachi)
+            </dd>
+
+            <dt style="font-weight: bold"> 
+                Điện thoại
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Dienthoai)
+            </dd>
+
+            <dt style="font-weight: bold">
+                Ngày sinh
+            </dt>
+
+            <dd>
+                @*@Html.DisplayFor(model => model.Ngaysinh)*@
+                @String.Format("{0:dd/MM/yyyy}", Model.Ngaysinh)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Quanlyuser")
+            </div>
+        }
+    </div>
+</section>

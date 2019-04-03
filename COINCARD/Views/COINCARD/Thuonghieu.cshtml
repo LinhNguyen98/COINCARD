@@ -1,0 +1,11 @@
+﻿@model IEnumerable<COINCARD.Models.THUONGHIEU>
+<div class="list-group">
+    @foreach (var item in Model)
+    {<div>
+
+        <a href="@Url.Action("SPtheothuonghieu","COINCARD", new {id = item.MaTH})" class="list-group-item">
+            @item.TenThuongHieu
+        </a>
+    </div>
+    }
+</div>

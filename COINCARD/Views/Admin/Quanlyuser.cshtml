@@ -1,0 +1,78 @@
+﻿@model IEnumerable<COINCARD.Models.KHACHHANG>
+
+@{
+    ViewBag.Title = "Quanlyuser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section id="PageMain">
+
+    <h2 style="text-align:center;padding-right:200px">Quản lý khách hàng</h2>
+
+    @*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+    <table class="table" style="font-size:13px; width:100%">
+        <tr>
+            <th>
+                Họ Và Tên
+            </th>
+            <th>
+                Tài Khoản
+            </th>
+            @*<th>
+                Mật Khẩu
+            </th>
+            <th>
+                Nhập Lại Mật Khẩu
+            </th>*@
+            <th>
+                Email
+            </th>
+            <th>
+                Địa Chỉ
+            </th>
+            <th>
+                Điện Thoại
+            </th>
+            <th>
+                Ngày Sinh
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hoten)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Taikhoan)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.Matkhau)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nhaplaimatkhau)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Diachi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dienthoai)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ngaysinh)
+                </td>
+                <td>
+                  
+                    @Html.ActionLink("Xóa", "Xoauser", new { id = item.MaKH })
+                </td>
+            </tr>
+        }
+
+    </table>
+</section>

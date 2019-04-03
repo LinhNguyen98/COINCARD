@@ -1,0 +1,104 @@
+﻿@model IEnumerable<COINCARD.Models.GIAY>
+@*@using COINCARD.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<COINCARD.Models.GIAY>*@
+@*@helper Truncate(string input, int length)
+{
+if (input.Length < length)
+{
+        @input
+}
+else
+{
+        @input.Substring(0, length)<text>...</text>
+}
+}*@
+
+
+@{
+    ViewBag.Title = "Giay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="PageMain">
+
+    <h2> QUẢN LÝ SẢN PHẨM</h2>
+
+    <p>
+        @Html.ActionLink("Thêm sản phẩm mới", "ThemmoiGiay")
+    </p>
+    <table class="table">
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Tengiay)              
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Giaban)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Anhbia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ngaycapnhat)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Soluongton)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaTH)
+            </th>*@
+            <th style="width:150px">  Mã giày </th>
+            <th style="width:200px">  Tên giày </th>
+                <th style="width:100px">  Giá bán  </th>
+                <th style="width:300px">  Mô tả    </th>
+                <th style="width:200px">  Ảnh bìa  </th>
+                <th style="width:150px">  Ngày cập nhật </th>
+                <th style="width:120px">  SL.Tồn </th>
+                <th style="width:120px">  Tên thương hiệu   </th>
+                <th style="width:200px">  </th>
+
+        </tr>
+
+        @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Magiay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tengiay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Giaban)
+            </td>
+            <td>
+                @*@Truncate(item.Mota, 100)*@
+                @Html.DisplayFor(modelItem => item.Mota)
+
+
+            </td>
+            <td>
+                <img src="@Url.Content("/img/"+  item.Anhbia)" width="120px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngaycapnhat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soluongton)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaTH)
+            </td>
+            
+            <td width="90px">
+                @Html.ActionLink("Sửa", "Suagiay", new { id = item.Magiay }) |
+                @Html.ActionLink("Chi tiết", "Chitietgiay", new { id = item.Magiay }) |
+                @Html.ActionLink("Xóa", "Xoagiay", new { id = item.Magiay })
+            </td>
+        </tr>
+        }
+    </table>
+</section>

@@ -1,0 +1,92 @@
+﻿@model COINCARD.Models.DONDATHANG
+
+@{
+    ViewBag.Title = "XoaDH";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="PageMain">
+
+
+    <h3></h3>
+    <div style="text-align:center; padding-right:22%">
+        <h4> ĐƠN ĐẶT HÀNG</h4>
+        <hr />
+        <dl class="dl-horizontal" style="font-size:20px">
+            <dt style="font-weight: bold">
+                Đã thanh toán
+            </dt>
+
+            
+                @*@Html.DisplayFor(model => model.Dathanhtoan)*@
+                @if (Model.Dathanhtoan == true)
+                {
+                    <dt style="width:15%; padding-left:42%">
+                        Yes
+                    </dt>
+                }
+                else
+                {
+                    <dt style="width:15%; padding-left:42%">
+                        No
+                    </dt>
+                }
+
+
+            <dt style="font-weight: bold">
+                Tình trạng giao hàng
+            </dt>
+
+            @if (Model.Tinhtranggiaohang == true)
+            {
+                <dt style="width:15%; padding-left:42%">
+                    Yes
+                </dt>
+            }
+            else
+            {
+                <dt style="width:15%; padding-left:42%">
+                    No
+                </dt>
+            }
+            @*<dd style="width:15%; padding-left:42%">
+                @Html.DisplayFor(model => model.Tinhtranggiaohang)
+            </dd>*@
+
+            <dt style="font-weight: bold">
+                Ngày đặt hàng
+            </dt>
+
+            <dd>
+                @String.Format("{0:dd/MM/yyyy}", Model.Ngaydat)
+            </dd>
+
+            <dt style="font-weight: bold">
+                Ngày giao hàng
+            </dt>
+
+            <dd>
+                @String.Format("{0:dd/MM/yyyy}", Model.Ngaygiao)
+            </dd>
+
+            <dt style="font-weight: bold">
+                Mã khách hàng
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MaKH)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Quanlydonhang")
+            </div>
+        }
+    </div>
+</section>

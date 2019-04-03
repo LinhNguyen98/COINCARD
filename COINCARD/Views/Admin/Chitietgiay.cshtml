@@ -1,0 +1,112 @@
+﻿@model COINCARD.Models.GIAY
+
+@{
+    ViewBag.Title = "Chitietgiay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="PageMain">
+    <div style="text-align:center; padding-right:22%">
+        <h3>CHI TIẾT GIÀY</h3>
+
+
+
+        <hr />
+        <dl class="dl-horizontal" style="font-size:13px">
+            <dt style="font-weight: bold">
+                Tên giày
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tengiay)
+            </dd>
+
+            <dt style="font-weight: bold">
+                Giá bán
+            </dt>
+
+            <dd>
+                @*@Html.DisplayFor(model => model.Giaban)*@
+                @String.Format("{0:0,0}", Model.Giaban) VNĐ
+
+            </dd>
+
+            <dt style="font-weight: bold">
+                Mô tả
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Mota)
+            </dd>
+
+            @*<dt>
+                Size:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Size)
+            </dd>*@
+
+            <dt style="font-weight: bold">
+                Ảnh bìa
+            </dt>
+
+            <dd>
+                <img src="@Url.Content("~/img/"+Model.Anhbia)" style="width:150px" />
+
+            </dd>
+
+            <dt style="font-weight: bold">
+                Ngày cập nhật
+            </dt>
+
+            <dd>
+                @*@Html.DisplayFor(model => model.Ngaycapnhat)*@
+                @String.Format("{0:dd/MM/yyyy}", Model.Ngaycapnhat)
+            </dd>
+
+            <dt style="font-weight: bold">
+                Số lượng
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Soluongton)
+            </dd>
+
+            <dt style="font-weight: bold">
+                Thương hiệu
+            </dt>
+
+          
+            @if (Model.MaTH == 1)
+            {
+                <dd>
+                    NIKE
+                </dd>
+            }
+            @if (Model.MaTH == 2)
+            {
+                <dd>
+                    ADIDAS
+                </dd>
+            }
+            @if (Model.MaTH == 3)
+            {
+                <dd>
+                    CONVERSE
+                </dd>
+            }
+            @if (Model.MaTH == 1)
+            {
+                <dd>
+                    VANS
+                </dd>
+            }
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Magiay }) |
+        @Html.ActionLink("Back to List", "Giay")
+    </p>
+</section>

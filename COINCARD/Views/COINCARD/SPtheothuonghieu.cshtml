@@ -1,0 +1,61 @@
+﻿
+@model IEnumerable<COINCARD.Models.GIAY>
+
+@{
+    ViewBag.Title = "SPtheothuonghieu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section id="Collections">
+
+    <h3 class="section_title" style="font-size:35px ;color :red">
+
+        BỘ SƯU TẬP
+    </h3>
+    <div class="hr">
+
+    </div>
+
+    <ul class="js-collection-loop clearfix col three">
+
+        @foreach (var giay in Model)
+        {
+            <li class="box-products 6">
+                <a href="@Url.Action("Details", "COINCARD", new { id = giay.Magiay })">
+                    @*<div class="img_outer">*@
+                        <div class="table_cell">
+                            <div class="sale_outer" >
+                                <img class="lazy" src="~/img/@giay.Anhbia" width="200" height="200">
+                            </div>
+                        @*</div>*@
+                    </div>
+                    <p class="product_title" style="font-size:17px"><b>@giay.Tengiay</b></p>
+                    <p class="product_price" style="font-size:14px">
+                        <span class="price_lg">
+                            <span class="money">
+
+                                @giay.Giaban VNĐ
+
+
+                            </span>
+
+                        </span>
+                    </p>
+                </a>
+            </li>
+
+        }
+    </ul>
+
+
+
+</section>
+
+
+
+
+
+
+
+

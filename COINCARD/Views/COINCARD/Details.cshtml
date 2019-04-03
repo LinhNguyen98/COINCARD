@@ -1,0 +1,93 @@
+﻿<style type="text/css">
+    #Datmua a:hover {
+        background-color: gray;
+        color: black;
+    }
+</style>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="product-right">
+  
+    <section id="ProductMain">
+        <section class="product_imgs clearfix hide-on-mobile">
+
+            <div class="left-image-prod" >
+                @*<div class="imageZoom" style="display: table-cell;  vertical-align: middle;  text-align:left;  position: relative;  width: 120px">*@
+                    <img id="1" class="pp_img_lge" src="~/img/@Model.Anhbia" width="200" >
+                @*</div>*@
+            </div>
+
+
+
+        </section>
+    </section>
+    <div class="content_side_outer">
+        <section id="product-1018720577" class="right-description content_side mt20">
+           
+            <div class="right-ipad">
+
+                <div class="mobile-sec">
+                    <h2 class="product-title">
+                        @Model.Tengiay
+                    </h2>
+                    <div class="clearboth"></div>
+                    <h3>
+                        <p style="text-align:justify"><span style="font-weight:bold"> Mô tả: </span> @Model.Mota</p>
+
+                    </h3>
+                    <form action="/cart/add" method="post" class="form-cart-wrapp clearfix" id="product-form">
+                        <div>
+                            <span>
+
+                                <h4>
+                                    <span class="money">@Model.Giaban VNĐ</span>
+
+                                </h4>
+
+                            </span>
+
+                        </div>
+
+                     
+                        <div class="select quantity_select">
+                            <label>Size:</label>
+                            @*<input type="number" size="2" class="quantity" min="1" max="@Model.Soluongton" name="quantity" value="1" autocomplete="off">*@
+                            <select >
+                                <option value="36">36</option>
+                                <option value="37">37</option>
+                                <option value="38">38</option>
+                                <option value="39">39</option>
+                                <option value="40">40</option>
+                                <option value="41">41</option>
+                                <option value="42">42</option>
+                                <option value="43">43</option>
+                                <option value="44">44</option>
+                                <option value="45">45</option>
+                            </select>
+                        </div>
+
+                        <div class="product_des_sort">
+
+                        </div>
+                      
+                        <div id="Datmua" class="btn btn-defaul">
+                                <a style="color:white" href="@Url.Action("ThemGioHang","GioHang", new {@iMagiay = @Model.Magiay, @strURL=Request.Url.ToString() })" class="list-group-item">
+                                    ĐẶT MUA
+                                </a>
+                            </div>
+                    </form>
+
+                    <div class="hr"></div>
+                    <div class="show_tags">
+                    </div>
+                </div>
+
+        </section>
+    </div>
+</div>
+
+
