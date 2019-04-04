@@ -8,7 +8,6 @@ namespace COINCARD.Controllers
 {
     public class GiohangController : Controller
     {
-        // GET: Giohang
         QLBanGiayDataContext data = new QLBanGiayDataContext();
         public List<Giohang> Laygiohang()
         {
@@ -125,7 +124,6 @@ namespace COINCARD.Controllers
         [HttpPost]
         public ActionResult DatHang(FormCollection collection)
         {
-            //Them Don hang
            
             DONDATHANG ddh = new DONDATHANG();
             KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
@@ -144,16 +142,11 @@ namespace COINCARD.Controllers
             {
                 ddh.Ngaygiao = DateTime.Parse(ngaygiao);
             }
-            //if (ngaygiao == string.Empty)
-            //{
-            //    ddh.Ngaygiao = null;
-            //}
          
 
 
             data.DONDATHANGs.InsertOnSubmit(ddh);
             data.SubmitChanges();
-            //Them chi tiet don hang            
             foreach (var item in gh)
             {
              

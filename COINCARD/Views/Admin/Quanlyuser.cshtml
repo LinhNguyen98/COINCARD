@@ -8,9 +8,6 @@
 
     <h2 style="text-align:center;padding-right:200px">Quản lý khách hàng</h2>
 
-    @*<p>
-        @Html.ActionLink("Create New", "Create")
-    </p>*@
     <table class="table" style="font-size:13px; width:100%">
         <tr>
             <th>
@@ -19,12 +16,7 @@
             <th>
                 Tài Khoản
             </th>
-            @*<th>
-                Mật Khẩu
-            </th>
-            <th>
-                Nhập Lại Mật Khẩu
-            </th>*@
+         
             <th>
                 Email
             </th>
@@ -49,12 +41,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Taikhoan)
                 </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.Matkhau)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nhaplaimatkhau)
-                </td>*@
+         
                 <td>
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
@@ -67,10 +54,11 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Ngaysinh)
                 </td>
-                <td>
-                  
+                <td width="90px">
+                  @Html.ActionLink("Sửa", "SuathongtinUser", new { id = item.MaKH }) | 
                     @Html.ActionLink("Xóa", "Xoauser", new { id = item.MaKH })
                 </td>
+               
             </tr>
         }
 

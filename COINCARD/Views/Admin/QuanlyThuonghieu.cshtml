@@ -1,0 +1,41 @@
+﻿@model IEnumerable<COINCARD.Models.THUONGHIEU>
+
+@{
+    ViewBag.Title = "QuanlyThuonghieu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section id="PageMain">
+    <h2>QUẢN LÝ THƯƠNG HIỆU</h2>
+
+    <p>
+        @Html.ActionLink("Thêm thương hiệu mới", "ThemmoiTH")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Mã Thương Hiệu
+            </th>
+            <th>
+               Tên Thương Hiệu
+            </th>          
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaTH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenThuongHieu)
+                </td>
+                
+                <td>
+                    @Html.ActionLink("Xóa", "XoaTH", new { id = item.MaTH })
+                </td>
+            </tr>
+        }
+
+    </table>
+</section>

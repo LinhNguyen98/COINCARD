@@ -25,7 +25,6 @@
             </dt>
 
             <dd>
-                @*@Html.DisplayFor(model => model.Giaban)*@
                 @String.Format("{0:0,0}", Model.Giaban) VNĐ
 
             </dd>
@@ -38,13 +37,6 @@
                 @Html.DisplayFor(model => model.Mota)
             </dd>
 
-            @*<dt>
-                Size:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Size)
-            </dd>*@
 
             <dt style="font-weight: bold">
                 Ảnh bìa
@@ -60,24 +52,15 @@
             </dt>
 
             <dd>
-                @*@Html.DisplayFor(model => model.Ngaycapnhat)*@
                 @String.Format("{0:dd/MM/yyyy}", Model.Ngaycapnhat)
             </dd>
 
-            @*<dt>
-                Số lượng:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Soluongton)
-            </dd>*@
-
+           
             <dt style="font-weight: bold">
                 Thương hiệu:
             </dt>
 
             
-                @*@Html.DisplayFor(model => model.MaTH)*@
                 @if (Model.MaTH == 1)
                 {
                     <dd>

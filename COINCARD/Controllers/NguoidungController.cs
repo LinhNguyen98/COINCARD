@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using COINCARD.Models;
-//using System.Net;
-//using Microsoft.AspNet.Identity;
 
+using System.Net;
+using Microsoft.AspNet.Identity;
 namespace COINCARD.Controllers
 {
     public class NguoidungController : Controller
@@ -75,14 +75,10 @@ namespace COINCARD.Controllers
                 kh.Email = email;
                 kh.Diachi = diachi;
                 kh.Dienthoai = dienthoai;
-                if(ngaysinh != string.Empty)
+                if (ngaysinh != string.Empty)
                 {
-                kh.Ngaysinh = DateTime.Parse(ngaysinh);
+                    kh.Ngaysinh = DateTime.Parse(ngaysinh);
                 }
-                //if(ngaysinh == string.Empty)
-                //{
-                //    kh.Ngaysinh = null;
-                //}
 
 
                 data.KHACHHANGs.InsertOnSubmit(kh);
@@ -118,8 +114,6 @@ namespace COINCARD.Controllers
             }
             return View();
         }
-
-
         public ActionResult Dangxuat(FormCollection collection)
         {
             var tendn = collection["Taikhoan"];
@@ -127,13 +121,7 @@ namespace COINCARD.Controllers
             KHACHHANG kh = data.KHACHHANGs.SingleOrDefault(n => n.Taikhoan == tendn && n.Matkhau == matkhau);
 
             Session["Taikhoan"] = null;
-            return RedirectToAction("Index","COINCARD");
-        }
-        public ActionResult Info ()
-        {
-          
-            return View();
-
+            return RedirectToAction("Index", "COINCARD");
         }
     }
 }

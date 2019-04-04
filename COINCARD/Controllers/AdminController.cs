@@ -12,14 +12,13 @@ namespace COINCARD.Controllers
     {
         QLBanGiayDataContext data = new QLBanGiayDataContext();
 
-        // GET: Admin
         public ActionResult Index()
         {
             return View();
         }
         public ActionResult Giay()
         {
-
+           
             return View(data.GIAYs.ToList());
         }
         [HttpGet]
@@ -102,7 +101,6 @@ namespace COINCARD.Controllers
         }
         public ActionResult Chitietgiay(int id)
         {
-            //Lay ra doi tuong sach theo ma
             GIAY giay = data.GIAYs.SingleOrDefault(n => n.Magiay == id);
             ViewBag.Magiay = giay.Magiay;
             if (giay == null)
@@ -146,14 +144,13 @@ namespace COINCARD.Controllers
 
         public ActionResult Suagiay(int id)
         {
-            GIAY giay =data.GIAYs.SingleOrDefault(n => n.Magiay == id);
+            GIAY giay = data.GIAYs.SingleOrDefault(n => n.Magiay == id);
             if (giay == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
-            //Dua du lieu vao dropdownList
-            //Lay ds tu tabke chu de, sắp xep tang dan trheo ten chu de, chon lay gia tri Ma CD, hien thi thi Tenchude
+          
             ViewBag.MaTH = new SelectList(data.THUONGHIEUs.ToList().OrderBy(n => n.TenThuongHieu), "MaTH", "TenThuongHieu", giay.MaTH);
             return View(giay);
         }
@@ -163,9 +160,7 @@ namespace COINCARD.Controllers
         {
             GIAY giay = data.GIAYs.Where(m => m.Magiay == id).SingleOrDefault();
             UpdateModel(giay);
-            //Dua du lieu vao dropdownload
             ViewBag.MaTH = new SelectList(data.THUONGHIEUs.ToList().OrderBy(n => n.TenThuongHieu), "MaTH", "TenThuongHieu", giay.MaTH);
-            //Kiem tra duong dan file
             if (fileUpload == null)
             {
                 ViewBag.Thongbao = "Vui lòng chọn ảnh bìa";
@@ -198,67 +193,6 @@ namespace COINCARD.Controllers
             }
         }
 
-
-
-
-
-
-
-        //public ActionResult Suagiay(int id)
-        //{
-        //    //Lay ra doi tuong sach theo ma
-        //    GIAY giay = data.GIAYs.SingleOrDefault(n => n.Magiay == id);
-        //    ViewBag.Magiay = giay.Magiay;
-        //    if (giay == null)
-        //    {
-        //        Response.StatusCode = 404;
-        //        return null;
-        //    }
-        //    //Dua du lieu vao dropdownList
-        //    //Lay ds tu tabke chu de, sắp xep tang dan trheo ten chu de, chon lay gia tri Ma CD, hien thi thi Tenchude
-        //    ViewBag.MaTH = new SelectList(data.THUONGHIEUs.ToList().OrderBy(n => n.TenThuongHieu), "MaTH", "TenThuongHieu", giay.MaTH);
-        //    return View(giay);
-        //}
-        //[HttpPost]
-        //[ValidateInput(false)]
-        //public ActionResult Suasach(GIAY giay, HttpPostedFileBase fileUpload)
-        //{
-        //    //Dua du lieu vao dropdownload
-        //    ViewBag.MaTH = new SelectList(data.THUONGHIEUs.ToList().OrderBy(n => n.TenThuongHieu), "MaTH", "TenThuongHieu");
-
-        //    //Kiem tra duong dan file
-        //    if (fileUpload == null)
-        //    {
-        //        ViewBag.Thongbao = "Vui lòng chọn ảnh bìa";
-        //        return View();
-        //    }
-        //    //Them vao CSDL
-        //    else
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            //Luu ten fie, luu y bo sung thu vien using System.IO;
-        //            var fileName = Path.GetFileName(fileUpload.FileName);
-        //            //Luu duong dan cua file
-        //            var path = Path.Combine(Server.MapPath("~/img/"), fileName);
-        //            //Kiem tra hình anh ton tai chua?
-        //            if (System.IO.File.Exists(path))
-        //                ViewBag.Thongbao = "Hình ảnh đã tồn tại";
-        //            else
-        //            {
-        //                //Luu hinh anh vao duong dan
-        //                fileUpload.SaveAs(path);
-        //            }
-        //            giay.Anhbia = fileName;
-        //            //Luu vao CSDL   
-        //            UpdateModel(giay);
-        //            data.SubmitChanges();
-
-        //        }
-        //        return RedirectToAction("Giay");
-        //    }
-        //}
-
         public ActionResult Dangxuatadmin(FormCollection collection)
         {
             var tendn = collection["username"];
@@ -275,21 +209,9 @@ namespace COINCARD.Controllers
         {
             return View(data.DONDATHANGs.ToList());
         }
-        //public ActionResult Chitietdonhang(int id)
-        //{
-        //    //Lay ra doi tuong sach theo ma
-        //    DONDATHANG ct = data.DONDATHANGs.SingleOrDefault(n => n.MaDonHang == id);
-        //    ViewBag.Magiay = ct.MaDonHang;
-        //    if (ct == null)
-        //    {
-        //        Response.StatusCode = 404;
-        //        return null;
-        //    }
-        //    return View(ct);
-        //}
+
         public ActionResult XoaDH(int id)
         {
-            //Lay ra doi tuong sach can xoa theo ma
             DONDATHANG dh = data.DONDATHANGs.SingleOrDefault(n => n.MaDonHang == id);
             ViewBag.Magiay = dh.MaDonHang;
             if (dh == null)
@@ -348,5 +270,76 @@ namespace COINCARD.Controllers
             data.SubmitChanges();
             return RedirectToAction("Quanlyuser");
         }
+        [HttpGet]
+        public ActionResult SuathongtinUser(int id)
+        {
+            KHACHHANG kh = data.KHACHHANGs.SingleOrDefault(n => n.MaKH == id);
+            if (kh == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(kh);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult SuathongtinUser(int? id)
+        {
+            KHACHHANG kh = data.KHACHHANGs.Where(m => m.MaKH == id).SingleOrDefault();
+            UpdateModel(kh);
+
+            data.SubmitChanges();
+
+
+            return RedirectToAction("Quanlyuser");
+
+        }
+        public ActionResult QuanlyThuonghieu()
+        {
+            return View(data.THUONGHIEUs.ToList());
+        }
+        [HttpGet]
+        public ActionResult ThemmoiTH()
+        {
+            ViewBag.MaTH = new SelectList(data.THUONGHIEUs.ToList().OrderBy(n => n.TenThuongHieu), "MaTH", "TenThuongHieu");
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ThemmoiTH(THUONGHIEU th)
+        {
+            data.THUONGHIEUs.InsertOnSubmit(th);
+            data.SubmitChanges();
+
+            return RedirectToAction("QuanlyThuonghieu");
+        }
+
+        [HttpGet]
+        public ActionResult XoaTH(int id)
+        {
+            THUONGHIEU th = data.THUONGHIEUs.SingleOrDefault(n => n.MaTH == id);
+            ViewBag.Magiay = th.MaTH;
+            if (th == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            return View(th);
+        }
+        [HttpPost, ActionName("XoaTH")]
+        public ActionResult XacnhanxoaTH(int id)
+        {
+            THUONGHIEU th = data.THUONGHIEUs.SingleOrDefault(n => n.MaTH == id);
+            ViewBag.Magiay = th.MaTH;
+            if (th == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            data.THUONGHIEUs.DeleteOnSubmit(th);
+            data.SubmitChanges();
+            return RedirectToAction("QuanlyThuonghieu");
+        }
     }
+
 }

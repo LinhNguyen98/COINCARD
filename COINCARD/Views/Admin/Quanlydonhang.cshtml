@@ -11,21 +11,7 @@
 
     <table class="table" style="font-size:13px">
         <tr>
-            @*<th>
-                    @Html.DisplayNameFor(model => model.Dathanhtoan)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Tinhtranggiaohang)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Ngaydat)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Ngaygiao)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.MaKH)
-                </th>*@
+         
             <th style="width:200px">  Đã thanh toán </th>
             <th style="width:100px">  Tình trạng giao hàng  </th>
             <th style="width:300px">  Ngày đặt    </th>
@@ -40,12 +26,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                @*<td>
-                    @item.Dathanhtoan
-                </td>
-                <td>
-                    @item.Tinhtranggiaohang
-                </td>*@
+             
                 @if (item.Dathanhtoan == true)
                 {
                     <td>
@@ -83,7 +64,6 @@
                 </td>
                 <td>
                    
-                    @*@Html.ActionLink("Chi tiết", "Chitietdonhang", new { id = item.MaDonHang }) |*@
                     @Html.ActionLink("Xóa", "XoaDH", new { id = item.MaDonHang })
                 </td>
             </tr>

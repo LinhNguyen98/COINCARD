@@ -530,7 +530,10 @@
     <Content Include="Views\Admin\Chitietdonhang.cshtml" />
     <Content Include="Views\Admin\Quanlyuser.cshtml" />
     <Content Include="Views\Admin\Xoauser.cshtml" />
-    <Content Include="Views\Nguoidung\Info.cshtml" />
+    <Content Include="Views\Admin\QuanlyThuonghieu.cshtml" />
+    <Content Include="Views\Admin\ThemmoiTH.cshtml" />
+    <Content Include="Views\Admin\XoaTH.cshtml" />
+    <Content Include="Views\Admin\SuathongtinUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -26,7 +26,6 @@
             </dt>
 
             <dd>
-                @*@Html.DisplayFor(model => model.Giaban)*@
                 @String.Format("{0:0,0}", Model.Giaban) VNĐ
 
             </dd>
@@ -39,13 +38,7 @@
                 @Html.DisplayFor(model => model.Mota)
             </dd>
 
-            @*<dt>
-                Size:
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Size)
-            </dd>*@
+          
 
             <dt style="font-weight: bold">
                 Ảnh bìa
@@ -61,7 +54,6 @@
             </dt>
 
             <dd>
-                @*@Html.DisplayFor(model => model.Ngaycapnhat)*@
                 @String.Format("{0:dd/MM/yyyy}", Model.Ngaycapnhat)
             </dd>
 
@@ -106,7 +98,7 @@
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Magiay }) |
+        @Html.ActionLink("Chỉnh sửa", "Suagiay", new { id = Model.Magiay }) |
         @Html.ActionLink("Back to List", "Giay")
     </p>
 </section>
