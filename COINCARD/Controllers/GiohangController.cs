@@ -115,6 +115,7 @@ namespace COINCARD.Controllers
             {
                 return RedirectToAction("Index", "COINCARD");
             }
+
             List<Giohang> lstGiohang = Laygiohang();
             ViewBag.Tongsoluong = TongSoLuong();
             ViewBag.Tongtien = Tongtien();
@@ -125,32 +126,29 @@ namespace COINCARD.Controllers
         public ActionResult DatHang(FormCollection collection)
         {
             //Them Don hang
+           
             DONDATHANG ddh = new DONDATHANG();
             KHACHHANG kh = (KHACHHANG)Session["Taikhoan"];
             List<Giohang> gh = Laygiohang();
             ddh.MaKH = kh.MaKH;
             ddh.Ngaydat = DateTime.Now;
             var ngaygiao = collection["Ngaygiao"];
+            if (String.IsNullOrEmpty(ngaygiao))
+            {
+                ViewData["Loi"] = "Phải nhập ngày giao";
+                ViewBag.Tongsoluong = TongSoLuong();
+                ViewBag.Tongtien = Tongtien();
+                return View(Laygiohang());
+            }
             if (ngaygiao != string.Empty)
             {
                 ddh.Ngaygiao = DateTime.Parse(ngaygiao);
             }
-            if (ngaygiao == string.Empty)
-            {
-                ddh.Ngaygiao = null;
-            }
+            //if (ngaygiao == string.Empty)
+            //{
+            //    ddh.Ngaygiao = null;
+            //}
          
-
-            //if (DateTime.Now >= DateTime.Parse(ngaygiao))
-            //{
-            //    ddh.Tinhtranggiaohang = true;
-            //    ddh.Dathanhtoan = true;
-            //}
-            //else
-            //{
-            //    ddh.Tinhtranggiaohang = false;
-            //    ddh.Dathanhtoan = false;
-            //}
 
 
             data.DONDATHANGs.InsertOnSubmit(ddh);
@@ -158,6 +156,7 @@ namespace COINCARD.Controllers
             //Them chi tiet don hang            
             foreach (var item in gh)
             {
+             
                 CHITIETDONHANG ctdh = new CHITIETDONHANG();
                 ctdh.MaDonHang = ddh.MaDonHang;
                 ctdh.Magiay = item.iMagiay;

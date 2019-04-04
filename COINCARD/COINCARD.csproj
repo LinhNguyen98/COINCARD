@@ -266,6 +266,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\563445C.jpg" />
     <Content Include="img\addas contrineatal 80 off whhite.jpg" />
     <Content Include="img\adidas alphabounce beyond running white.jpg" />
     <Content Include="img\adidas alphabounce beyond.jpg" />
@@ -292,9 +293,18 @@
     <Content Include="img\arrow_dropdown.png" />
     <Content Include="img\chuck 1.jpg" />
     <Content Include="img\chuck 2.jpg" />
+    <Content Include="img\chuck taylor all star black.jpg" />
+    <Content Include="img\chuck taylor all star limo leather.jpg" />
+    <Content Include="img\chuck taylor all star.jpg" />
     <Content Include="img\Conver x OffWhite.jpg" />
+    <Content Include="img\convers aldistrito.jpg" />
+    <Content Include="img\convers chuk shadow.jpg" />
+    <Content Include="img\converse chuck 70 vitage canavas.jpg" />
+    <Content Include="img\converse chuck 70 vitage.jpg" />
+    <Content Include="img\converse chuck hight street.jpg" />
     <Content Include="img\Converse Classic.jpg" />
     <Content Include="img\converse heart.jpg" />
+    <Content Include="img\converse hight top.jpg" />
     <Content Include="img\d40583fa17cc5d86f90d1b0ec8b96ae6.jpg" />
     <Content Include="img\dvrk.svg" />
     <Content Include="img\email-popup-background.jpg" />

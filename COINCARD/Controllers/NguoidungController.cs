@@ -36,29 +36,33 @@ namespace COINCARD.Controllers
             {
                 ViewData["Loi1"] = "Họ tên không được để trống";
             }
-            if (string.IsNullOrEmpty(tendn))
+            else if (string.IsNullOrEmpty(tendn))
             {
                 ViewData["Loi2"] = "Nhập tên đăng nhập";
             }
-            if (string.IsNullOrEmpty(matkhau))
+            else if (string.IsNullOrEmpty(matkhau))
             {
                 ViewData["Loi3"] = "Nhập mật khẩu";
             }
-            if (string.IsNullOrEmpty(diachi))
+            else if (string.IsNullOrEmpty(diachi))
             {
                 ViewData["Loi5"] = "Nhập địa chỉ";
             }
-            if (string.IsNullOrEmpty(email))
+            else if (string.IsNullOrEmpty(email))
             {
                 ViewData["Loi6"] = "Nhập Email";
             }
-            if (string.IsNullOrEmpty(dienthoai))
+            else if (string.IsNullOrEmpty(dienthoai))
             {
                 ViewData["Loi7"] = "Nhập số điện thoại";
             }
-            if (kh.Matkhau != kh.Nhaplaimatkhau)
+            else if (kh.Matkhau != kh.Nhaplaimatkhau)
             {
                 ViewData["Loi4"] = "Mật khẩu nhập lại không khớp";
+            }
+            else if (ngaysinh == string.Empty)
+            {
+                ViewData["Loi8"] = "Phải nhập ngày sinh";
             }
 
             else
@@ -75,10 +79,10 @@ namespace COINCARD.Controllers
                 {
                 kh.Ngaysinh = DateTime.Parse(ngaysinh);
                 }
-                if(ngaysinh == string.Empty)
-                {
-                    kh.Ngaysinh = null;
-                }
+                //if(ngaysinh == string.Empty)
+                //{
+                //    kh.Ngaysinh = null;
+                //}
 
 
                 data.KHACHHANGs.InsertOnSubmit(kh);
