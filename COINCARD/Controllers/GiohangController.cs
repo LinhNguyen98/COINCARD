@@ -131,6 +131,7 @@ namespace COINCARD.Controllers
             ddh.MaKH = kh.MaKH;
             ddh.Ngaydat = DateTime.Now;
             var ngaygiao = collection["Ngaygiao"];
+            
             if (String.IsNullOrEmpty(ngaygiao))
             {
                 ViewData["Loi"] = "Phải nhập ngày giao";
@@ -142,7 +143,17 @@ namespace COINCARD.Controllers
             {
                 ddh.Ngaygiao = DateTime.Parse(ngaygiao);
             }
-         
+            if (DateTime.Parse(ngaygiao) <= DateTime.Now)
+            {
+                ddh.Tinhtranggiaohang = true;
+                ddh.Dathanhtoan = true;
+
+            }
+            else
+            {
+                ddh.Tinhtranggiaohang = false;
+                ddh.Dathanhtoan = false;
+            }
 
 
             data.DONDATHANGs.InsertOnSubmit(ddh);
